@@ -1,0 +1,48 @@
+Aqui está um arquivo editável e um passo a passo detalhado para o projeto Django que você montou. Cada seção explica a função de cada arquivo e linha de código, ideal para quem está começando com Django.
+
+Passo a passo para o Projeto Django
+1. Estrutura do Projeto
+A estrutura de pastas do seu projeto é a espinha dorsal da aplicação. Ela organiza todos os arquivos de forma lógica, seguindo as convenções do Django.
+
+myproject/                  # Pasta raiz do projeto Django
+├── myproject/              # O pacote Python do projeto
+│   ├── __init__.py         # Indica que a pasta é um pacote Python
+│   ├── settings.py         # Configurações do projeto (banco de dados, apps, etc.)
+│   ├── urls.py             # Mapeamento global de URLs
+│   └── wsgi.py             # Ponto de entrada para servidores web
+├── login/                  # Aplicativo Django para a funcionalidade de login
+│   ├── migrations/         # Arquivos de migração de banco de dados
+│   ├── static/             # Arquivos estáticos (CSS, imagens) para o app 'login'
+│   │   ├── css/
+│   │   │   └── login.css
+│   │   └── img/
+│   │       └── Logo-ipaam.png
+│   ├── templates/          # Arquivos HTML para o app 'login'
+│   │   └── login/
+│   │       └── login.html
+│   ├── __init__.py
+│   ├── admin.py            # Registro de modelos para o painel de administração
+│   ├── apps.py             # Configuração do aplicativo
+│   ├── models.py           # Modelos de banco de dados
+│   ├── urls.py             # Mapeamento de URLs específico do app 'login'
+│   └── views.py            # Lógica de negócio do app 'login'
+├── requisicoes/            # Aplicativo Django para a tela de requisições
+│   ├── migrations/
+│   ├── static/             # Arquivos estáticos para o app 'requisicoes'
+│   │   ├── css/
+│   │   │   └── principal.css
+│   │   └── img/
+│   │       ├── casinha.png
+│   │       ├── lista.png
+│   │       ├── Logo-ipaam.png
+│   │       └── mais.png
+│   ├── templates/
+│   │   └── requisicoes/
+│   │       └── principal.html
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── urls.py
+│   └── views.py
+└── manage.py               # Utilitário de linha de comando para tarefas do projeto

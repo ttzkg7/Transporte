@@ -1,0 +1,147 @@
+Guia para Entender a Estrutura do seu Projeto Django
+Este documento foi criado para ajudá-lo a entender a estrutura e a lógica do projeto Django que você montou. É um passo a passo para iniciantes, explicando o papel de cada arquivo e linha de código.
+
+1. O Esqueleto do Projeto
+    A estrutura de pastas do seu projeto é a base da sua aplicação. O Django utiliza a separação em "apps" para manter o código organizado e reutilizável.
+
+    MAIN_TRANSPORTE/: A pasta principal do projeto. Contém configurações globais.
+
+        settings.py: Onde estão todas as configurações do seu projeto (apps, banco de dados, arquivos estáticos, etc.).
+
+        urls.py: O roteador principal, que direciona as requisições para os apps corretos.
+
+    login/: O primeiro app, responsável por toda a funcionalidade de login.
+
+        views.py: Contém a lógica para exibir a página de login.
+
+        urls.py: Define as rotas URL específicas do app de login.
+
+    requisicoes/: O segundo app, para a tela principal de requisições.
+
+        views.py: Contém a lógica para exibir a página principal.
+
+        urls.py: Define as rotas URL específicas do app de requisições.
+
+    manage.py: Uma ferramenta de linha de comando para tarefas administrativas, como iniciar o servidor.
+
+2. Configurações Globais (MAIN_TRANSPORTE/settings.py)
+    Este arquivo é o painel de controle do seu projeto.
+
+    # INSTALLED_APPS: Lista os aplicativos que o Django deve carregar.
+    # 'login' e 'requisicoes' foram adicionados aqui para que o Django os reconheça.
+    INSTALLED_APPS = [
+        'django.contrib.admin',
+        # ... outros apps do Django
+        'login',        # Seu app de login
+        'requisicoes',  # Seu app de requisições
+    ]
+
+    # ...
+
+    # ROOT_URLCONF: Diz ao Django qual arquivo usar como roteador principal.
+    ROOT_URLCONF = 'MAIN_TRANSPORTE.urls'
+
+    # ...
+
+    # STATIC_URL: O prefixo da URL para arquivos estáticos (CSS, imagens).
+    STATIC_URL = 'static/'
+
+    # STATICFILES_DIRS: Onde o Django deve procurar por arquivos estáticos.
+    # Esta linha garante que o Django encontre os arquivos estáticos dos seus apps.
+    STATICFILES_DIRS = [
+        BASE_DIR / "login/static",
+        BASE_DIR / "requisicoes/static",
+    ]
+
+3. Roteamento de URLs
+    O sistema de URLs do Django funciona em camadas, do global ao específico.
+
+    MAIN_TRANSPORTE/urls.py (Roteador Global)
+    Este arquivo é o primeiro a ser consultado quando uma requisição chega.
+
+    from django.urls import path, include
+    from django.shortcuts import redirect
+
+    # Função que redireciona a página inicial (ex: '/') para a tela principal.
+    def root_redirect(request):
+        return redirect('requisicoes:principal')
+
+    urlpatterns = [
+        # Mapeia a URL para o painel de administração do Django.
+        path('admin/', admin.site.urls),
+        
+        # Mapeia a URL raiz ('/') para a função de redirecionamento.
+        path('', root_redirect),
+        
+        # Inclui as URLs do app 'login' em '/login/'.
+        path('login/', include('login.urls')),
+        
+        # Inclui as URLs do app 'requisicoes' em '/requisicoes/'.
+        path('requisicoes/', include('requisicoes.urls')),
+    ]
+
+    login/urls.py (Roteador do App Login)
+    Gerencia as rotas dentro do app de login.
+
+    from django.urls import path
+    from . import views
+
+    # app_name: Define um "namespace" (espaço de nomes) para as URLs do app.
+    # Isso evita conflitos de nomes se outros apps tiverem URLs com o mesmo nome.
+    app_name = 'login'
+
+    urlpatterns = [
+        # Mapeia a URL vazia (que se torna '/login/') para a view 'login_view'.
+        # O 'name' permite que referenciemos esta URL como 'login:login'.
+        path('', views.login_view, name='login'),
+    ]
+
+4. Views (Lógica da Aplicação)
+    As "views" são as funções que processam as requisições e retornam as respostas (neste caso, as páginas HTML).
+
+    login/views.py
+    from django.shortcuts import render
+
+    # Esta view simplesmente carrega e exibe o template 'login/login.html'.
+    # O primeiro parâmetro 'request' é a requisição do usuário.
+    # O segundo parâmetro é o caminho para o arquivo HTML a ser exibido.
+    def login_view(request):
+        return render(request, 'login/login.html')
+
+5. Templates HTML e Arquivos Estáticos
+    Os templates são os arquivos HTML que você criou, mas com algumas tags especiais do Django.
+
+    login/templates/login/login.html
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Login - IPAAM</title>
+        
+        <!-- {% load static %} permite usar a tag {% static ... %} -->
+        <!-- {% static 'caminho' %} gera a URL correta para o seu arquivo. -->
+        <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    </head>
+    <body>
+        <div class="login-container">
+            <div class="header">
+                <!-- A tag static garante que a imagem seja encontrada. -->
+                <img src="{% static 'img/Logo-ipaam.png' %}" alt="Logo IPAAM" class="logo">
+                <h1>Login</h1>
+            </div>
+            <form action="{% url 'requisicoes:principal' %}" method="get" class="login-form">
+                <!-- action="{% url 'requisicoes:principal' %}": Esta tag gera a URL para a página principal,
+                garantindo que o formulário redirecione para o lugar certo. -->
+                <div class="form-group">
+                    <label for="username">Usuário:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <!-- ... -->
+                <button type="submit" class="login-button">Entrar</button>
+            </form>
+        </div>
+    </body>
+    </html>
+
+Agora você tem um documento completo que pode ser copiado e salvo como um PDF para referência futura.

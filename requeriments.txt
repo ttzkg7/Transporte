@@ -1,0 +1,9 @@
+
+# É POSSÍVEL ALTERAR TUDO ATÉ ENTÃO ENQUANTO NÃO ESTAMOS USANDO OUTRA BIBLIOTECA !!!
+
+# Rode com -> pip install -r requirements.txt
+
+# Django é o framework web principal do projeto.
+# Recomenda-se fixar a versão para garantir que o projeto funcione
+# em diferentes ambientes de desenvolvimento e produção.
+Django==5.0.6
