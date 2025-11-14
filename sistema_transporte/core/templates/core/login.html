@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Página de login</title>
+	<link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+	<div class="container">
+		<form method="post" action="{% url 'login' %}">
+			{% csrf_token %} 
+			<fieldset class="container-form">
+				<legend class="legend-logo">
+					<figure>
+						<img src="{% static 'images/logo_ipaam.png' %}" >
+					</figure>
+				</legend>
+				<input type="text" name="email" placeholder="Usuário">
+				<input type="password" name="password" placeholder="Senha">
+				<button>Entrar</button>
+			</fieldset>
+		</form>
+	</div>
+	<footer>Desenvolvido pela GEAI - Gerência de Análise de Informática - 2025</footer>
+</body>
+</html>

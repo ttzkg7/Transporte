@@ -1,0 +1,548 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<link rel="stylesheet" href="{% static 'css/principal_daf.css' %}">
+</head>
+<body>
+	<div class="container">
+		<aside class="sidebar">
+			<div class="logo-ipaam">
+				<div class="menu-logo">
+					<img src="{% static 'images/logo_ipaam.png' %}" >
+					<h4>
+					Sistema de Controle de Frotas
+					</h4>
+				</div>
+				<nav class="menu-nav">
+					<h3>Navegação</h3>
+					<ul>
+						<li><a href="#" class="menu-button" onclick="abrirAba('dashboard', this)"><i class="fa-solid fa-house"></i>Dashboard</a></li>
+						<li><a href="#" class="menu-button" onclick="abrirAba('nova-requisicao', this)"><i class="fa-solid fa-plus"></i>Nova requisição</a></li>
+						<li><a href="#" class="menu-button" onclick="abrirAba('minhas-requisicoes', this)"><i class="fa-solid fa-list"></i>Minhas requisições</a></li>
+						<li><a href="#" class="menu-button" onclick="abrirAba('aprovar-solicitacoes', this)"><i class="fa-solid fa-regular fa-chart-bar"></i>Aprovação</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="nav-footer">
+				Nome do usuário
+			</div>
+		</aside>
+		<div class="content">
+			<div class="dashboard menu-content" id="dashboard">
+				<div class="info">
+					<div class="titulo">
+						<h1>Requisição de veiculos</h1>
+						<p>Gerencie por aqui todas as suas requisições de veiculos.</p>
+					</div>
+					<div class="card-container">
+						<div class="card" style="background-color: #51e7f5a6;">
+							<div class="titulo-card">
+								<p>Total requisições</p>
+								<h1>24</h1>
+							</div>
+						</div>
+						<div class="card" style="background-color: #ff4040a6;">
+							<div class="titulo-card">
+								<p>Pendentes</p>
+								<h1>4</h1>
+							</div>
+						</div>
+						<div class="card" style="background-color: #96fd62a6;">
+							<div class="titulo-card">
+								<p>Aprovadas</p>
+								<h1>24</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="requisicao-recentes">
+					<h4>Requisições Recentes</h4>
+					<div class="todas-requisicoes">
+						<div class="card-requisicoes">
+							<div class="titulo-requisicao">
+								<div class="flex">
+									<h4>numero requisição</h4>
+									<p>
+										<i class="fa-regular fa-circle-check fa-2xs"></i>
+										Aprovada</p>
+								</div>
+								<p>data criação da requisição</p>
+							</div>
+							<div class="info-requisicao">
+								<div>
+									<i class="fa-solid fa-location-dot fa-2xs"></i>
+									<p>itinerario</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-calendar-days fa-2xs"></i>
+									<p>data da viagem</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-people-group fa-2xs"></i>
+									<p>Qntd. Passageiros</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="todas-requisicoes">
+						<div class="card-requisicoes">
+							<div class="titulo-requisicao">
+								<div class="flex">
+									<h4>numero requisição</h4>
+									<p>
+										<i class="fa-regular fa-circle-check fa-2xs"></i>
+										Aprovada</p>
+								</div>
+								<p>data criação da requisição</p>
+							</div>
+							<div class="info-requisicao">
+								<div>
+									<i class="fa-solid fa-location-dot fa-2xs"></i>
+									<p>itinerario</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-calendar-days fa-2xs"></i>
+									<p>data da viagem</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-people-group fa-2xs"></i>
+									<p>Qntd. Passageiros</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="todas-requisicoes">
+						<div class="card-requisicoes">
+							<div class="titulo-requisicao">
+								<div class="flex">
+									<h4>numero requisição</h4>
+									<p>
+										<i class="fa-regular fa-circle-check fa-2xs"></i>
+										Aprovada</p>
+								</div>
+								<p>data criação da requisição</p>
+							</div>
+							<div class="info-requisicao">
+								<div>
+									<i class="fa-solid fa-location-dot fa-2xs"></i>
+									<p>itinerario</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-calendar-days fa-2xs"></i>
+									<p>data da viagem</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-people-group fa-2xs"></i>
+									<p>Qntd. Passageiros</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="nova-requisicao menu-content" id="nova-requisicao">
+				<div class="titulo-nova-requisicao">
+					<h1>Nova Requisição de Veículo</h1>
+					<p>Preencha os dados abaixo para solicitar um veículo</p>
+				</div>
+				<div class="formulario-requisicao">
+					<div class="titulo-formulario">
+						<i class="fa-solid fa-car-side fa-sm" style="color: #00ad03;"></i>
+						<h4>Dados da Requisição</h4>
+					</div>
+					<form action="">
+						<div class="linhas-form">
+							<div>
+								<label for="">N° Requisição</label>
+								<input type="text">
+							</div>
+							<div>
+								<label for="">
+									<i class="fa-regular fa-compass fa-2xs"></i>
+									itinerario</label>
+								<input type="text">
+							</div>
+						</div>
+						<div class="linhas-form">
+							<div>
+								<label for="">
+									<i class="fa-regular fa-calendar fa-2xs"></i>
+									Informe a data: </label>
+								<input type="date">
+							</div>
+							<div>
+								<label for="">
+									<i class="fa-regular fa-clock fa-2xs"></i>
+									Informe a hora: </label>
+								<input type="time" name="" id="">
+							</div>
+						</div>
+						<div class="linhas-form">
+							<div>
+								<label for="">
+									<i class="fa-regular fa-user fa-2xs"></i>
+									Nome dos Passageiros</label>
+								<textarea name="nome-passageiros" id="nome-passageiros"></textarea>
+							</div>
+							<div>
+								<label for="">
+									<i class="fa-regular fa-comment fa-2xs"></i>
+									Informações adcionais</label>
+								<textarea name="" id=""></textarea>
+							</div>
+						</div>
+						<div class="button">
+							<button class="botao1">Cancelar</button>
+							<button class="botao2">
+								<i class="fa-regular fa-paper-plane fa-2xs"></i>
+								enviar Requisição
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="minhas-requisicoes menu-content active" id="minhas-requisicoes">
+				<h1>Minhas Requisições</h1>
+				<p>Acompanhe por aqui todas as requisições ja feitas.</p>
+				<div class="filtro">
+					<div class="total">
+						<h4>
+							<i class="fa-solid fa-filter"></i>
+							Filtro :
+						</h4>
+					<select name="" id="">
+						<option value="">Todas</option>
+						<option value="">Pendentes</option>
+						<option value="">Finalizadas</option>
+						<option value="">Aprovadas</option>
+					</select>
+					</div>
+					<div class="total-encontrada">
+						<p>4 requisições encontradas</p>
+					</div>
+				</div>
+				<div class="todas-requisicoes">
+					<div class="card-requisicoes card-todas-requisicoes">
+						<div class="titulo-requisicao">
+							<div class="flex">
+								<h4>numero requisição</h4>
+								<p>
+									<i class="fa-regular fa-circle-check fa-2xs"></i>
+									Aprovada</p>
+							</div>
+							<p>data criação da requisição</p>
+						</div>
+						<div class="info-requisicao">
+							<div>
+								<i class="fa-solid fa-location-dot fa-2xs"></i>
+								<p>itinerario</p>
+							</div>
+							<div>
+								<i class="fa-solid fa-calendar-days fa-2xs"></i>
+								<p>data da viagem</p>
+							</div>
+							<div>
+								<i class="fa-solid fa-people-group fa-2xs"></i>
+								<p>Qntd. Passageiros</p>
+							</div>
+						</div>
+					</div>
+					<div class="card-requisicoes card-todas-requisicoes">
+							<div class="titulo-requisicao">
+								<div class="flex">
+									<h4>numero requisição</h4>
+									<p>
+										<i class="fa-regular fa-circle-check fa-2xs"></i>
+										Aprovada</p>
+								</div>
+								<p>data criação da requisição</p>
+							</div>
+							<div class="info-requisicao">
+								<div>
+									<i class="fa-solid fa-location-dot fa-2xs"></i>
+									<p>itinerario</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-calendar-days fa-2xs"></i>
+									<p>data da viagem</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-people-group fa-2xs"></i>
+									<p>Qntd. Passageiros</p>
+								</div>
+							</div>
+						</div>
+						<div class="card-requisicoes card-todas-requisicoes">
+							<div class="titulo-requisicao">
+								<div class="flex">
+									<h4>numero requisição</h4>
+									<p>
+										<i class="fa-regular fa-circle-check fa-2xs"></i>
+										Aprovada</p>
+								</div>
+								<p>data criação da requisição</p>
+							</div>
+							<div class="info-requisicao">
+								<div>
+									<i class="fa-solid fa-location-dot fa-2xs"></i>
+									<p>itinerario</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-calendar-days fa-2xs"></i>
+									<p>data da viagem</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-people-group fa-2xs"></i>
+									<p>Qntd. Passageiros</p>
+								</div>
+							</div>
+						</div>
+						<div class="card-requisicoes card-todas-requisicoes">
+							<div class="titulo-requisicao">
+								<div class="flex">
+									<h4>numero requisição</h4>
+									<p>
+										<i class="fa-regular fa-circle-check fa-2xs"></i>
+										Aprovada</p>
+								</div>
+								<p>data criação da requisição</p>
+							</div>
+							<div class="info-requisicao">
+								<div>
+									<i class="fa-solid fa-location-dot fa-2xs"></i>
+									<p>itinerario</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-calendar-days fa-2xs"></i>
+									<p>data da viagem</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-people-group fa-2xs"></i>
+									<p>Qntd. Passageiros</p>
+								</div>
+							</div>
+						</div>
+						<div class="card-requisicoes card-todas-requisicoes">
+							<div class="titulo-requisicao">
+								<div class="flex">
+									<h4>numero requisição</h4>
+									<p>
+										<i class="fa-regular fa-circle-check fa-2xs"></i>
+										Aprovada</p>
+								</div>
+								<p>data criação da requisição</p>
+							</div>
+							<div class="info-requisicao">
+								<div>
+									<i class="fa-solid fa-location-dot fa-2xs"></i>
+									<p>itinerario</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-calendar-days fa-2xs"></i>
+									<p>data da viagem</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-people-group fa-2xs"></i>
+									<p>Qntd. Passageiros</p>
+								</div>
+							</div>
+						</div>
+						<div class="card-requisicoes card-todas-requisicoes">
+							<div class="titulo-requisicao">
+								<div class="flex">
+									<h4>numero requisição</h4>
+									<p>
+										<i class="fa-regular fa-circle-check fa-2xs"></i>
+										Aprovada</p>
+								</div>
+								<p>data criação da requisição</p>
+							</div>
+							<div class="info-requisicao">
+								<div>
+									<i class="fa-solid fa-location-dot fa-2xs"></i>
+									<p>itinerario</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-calendar-days fa-2xs"></i>
+									<p>data da viagem</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-people-group fa-2xs"></i>
+									<p>Qntd. Passageiros</p>
+								</div>
+							</div>
+						</div>
+				</div>
+			</div>
+			<div class="aprovar-solicitacoes menu-content" id="aprovar-solicitacoes">
+				<h1>Requisições para aprovar</h1>
+				<p>Aprove as requisições para os setores.</p>
+				<div class="todas-requisicoes">
+					<div class="card-requisicoes card-todas-requisicoes">
+						<div class="titulo-requisicao">
+							<div class="flex">
+								<h4>numero requisição</h4>
+								<div class="aprovacao">
+									<a href="#" class="reprovada"><i class="fa-regular fa-circle-xmark"></i>
+										Reprovada</a></a>
+									<a href="#" class="aprovada"><i class="fa-regular fa-circle-check"></i>
+										Aprovada</a></a>
+								</div>
+							</div>
+							<p>data criação da requisição</p>
+						</div>
+						<div class="info-requisicao">
+							<div>
+								<i class="fa-solid fa-location-dot fa-2xs"></i>
+								<p>itinerario</p>
+							</div>
+							<div>
+								<i class="fa-solid fa-calendar-days fa-2xs"></i>
+								<p>data da viagem</p>
+							</div>
+							<div>
+								<i class="fa-solid fa-people-group fa-2xs"></i>
+								<p>Qntd. Passageiros</p>
+							</div>
+						</div>
+					</div>
+					<div class="card-requisicoes card-todas-requisicoes">
+							<div class="titulo-requisicao">
+								<div class="flex">
+									<h4>numero requisição</h4>
+									<div class="aprovacao">
+										<a href="#" class="reprovada"><i class="fa-regular fa-circle-xmark"></i>
+											Reprovada</a></a>
+										<a href="#" class="aprovada"><i class="fa-regular fa-circle-check"></i>
+											Aprovada</a></a>
+									</div>
+								</div>
+								<p>data criação da requisição</p>
+							</div>
+							<div class="info-requisicao">
+								<div>
+									<i class="fa-solid fa-location-dot fa-2xs"></i>
+									<p>itinerario</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-calendar-days fa-2xs"></i>
+									<p>data da viagem</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-people-group fa-2xs"></i>
+									<p>Qntd. Passageiros</p>
+								</div>
+							</div>
+						</div>
+						<div class="card-requisicoes card-todas-requisicoes">
+							<div class="titulo-requisicao">
+								<div class="flex">
+									<h4>numero requisição</h4>
+									<div class="aprovacao">
+										<a href="#" class="reprovada"><i class="fa-regular fa-circle-xmark"></i>
+											Reprovada</a></a>
+										<a href="#" class="aprovada"><i class="fa-regular fa-circle-check"></i>
+											Aprovada</a></a>
+									</div>
+								</div>
+								<p>data criação da requisição</p>
+							</div>
+							<div class="info-requisicao">
+								<div>
+									<i class="fa-solid fa-location-dot fa-2xs"></i>
+									<p>itinerario</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-calendar-days fa-2xs"></i>
+									<p>data da viagem</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-people-group fa-2xs"></i>
+									<p>Qntd. Passageiros</p>
+								</div>
+							</div>
+						</div>
+						<div class="card-requisicoes card-todas-requisicoes">
+							<div class="titulo-requisicao">
+								<div class="flex">
+									<h4>numero requisição</h4>
+									<div class="aprovacao">
+										<a href="#" class="reprovada"><i class="fa-regular fa-circle-xmark"></i>
+											Reprovada</a></a>
+										<a href="#" class="aprovada"><i class="fa-regular fa-circle-check"></i>
+											Aprovada</a></a>
+									</div>
+								</div>
+								<p>data criação da requisição</p>
+							</div>
+							<div class="info-requisicao">
+								<div>
+									<i class="fa-solid fa-location-dot fa-2xs"></i>
+									<p>itinerario</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-calendar-days fa-2xs"></i>
+									<p>data da viagem</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-people-group fa-2xs"></i>
+									<p>Qntd. Passageiros</p>
+								</div>
+							</div>
+						</div>
+						<div class="card-requisicoes card-todas-requisicoes">
+							<div class="titulo-requisicao">
+								<div class="flex">
+									<h4>numero requisição</h4>
+									<div class="aprovacao">
+										<a href="#" class="reprovada"><i class="fa-regular fa-circle-xmark"></i>
+											Reprovada</a></a>
+										<a href="#" class="aprovada"><i class="fa-regular fa-circle-check"></i>
+											Aprovada</a></a>
+									</div>
+								</div>
+								<p>data criação da requisição</p>
+							</div>
+							<div class="info-requisicao">
+								<div>
+									<i class="fa-solid fa-location-dot fa-2xs"></i>
+									<p>itinerario</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-calendar-days fa-2xs"></i>
+									<p>data da viagem</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-people-group fa-2xs"></i>
+									<p>Qntd. Passageiros</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+   <script src="https://kit.fontawesome.com/656642bb16.js" crossorigin="anonymous"></script>
+
+		<script>
+			function abrirAba(nome_aba, elemento) {
+				document.querySelectorAll('.menu-content').forEach(tab => {
+			  tab.classList.remove('active');
+			});
+			document.querySelectorAll('.menu-button').forEach(button => {
+			  button.classList.remove('active');
+			});
+			document.getElementById(nome_aba).classList.add('active');
+			event.target.classList.add('active');
+			}
+		</script>
+   
+
+</body>
+</html>

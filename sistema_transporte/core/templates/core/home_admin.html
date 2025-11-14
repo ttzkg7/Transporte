@@ -1,0 +1,11 @@
+
+<h1>home admin</h1>
+
+<h1>Lista de Clientes Ativos</h1>
+
+{% for user in users %}
+    <!-- <p>Nome: {{ cliente.0 }} | Idade: {{ cliente.1 }}</p>  -->
+    <p>Nome: {{ user.0 }} | email: {{ user.1 }} | senha: {{ user.2 }}</p> 
+{% empty %}
+    <p>Nenhum cliente ativo encontrado.</p>
+{% endfor %}

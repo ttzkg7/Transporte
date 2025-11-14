@@ -1,0 +1,326 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<link rel="stylesheet" href="{% static 'css/principal_usuario.css' %}">
+</head>
+<body>
+	<div class="container">
+		<aside class="sidebar">
+			<div class="logo-ipaam">
+				<div class="menu-logo">
+					<img src="{% static 'images/logo_ipaam.png' %}" >
+					<h4>
+					Sistema de Controle de Frotas
+					</h4>
+				</div>
+				<nav class="menu-nav">
+					<h3>Navegação</h3>
+					<ul>
+						<li><a href="#" class="menu-button" onclick="abrirAba('dashboard', this)"><i class="fa-solid fa-house"></i>Dashboard</a></li>
+						<li><a href="#" class="menu-button" onclick="abrirAba('nova-requisicao', this)"><i class="fa-solid fa-plus"></i>Nova requisição</a></li>
+						<li><a href="{% url 'home_user' %}" class="menu-button" onclick="abrirAba('minhas-requisicoes', this)"><i class="fa-solid fa-list"></i>Minhas requisições</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="nav-footer">
+				Nome do usuário
+			</div>
+		</aside>
+
+		<div class="content">
+			<div class="dashboard menu-content" id="dashboard">
+				<div class="info">
+					<div class="titulo">
+						<h1>Requisição de veiculos</h1>
+						<p>Gerencie por aqui todas as suas requisições de veiculos.</p>
+					</div>
+					<div class="card-container">
+						<div class="card">
+							<div class="titulo-card">
+								<p>Total requisições</p>
+								<h1>24</h1>
+							</div>
+							<div class="simbolo">
+								<i class="fa-solid fa-car-side fa-2xl" style="color: #74C0FC;"></i>
+							</div>
+						</div>
+						<div class="card">
+							<div class="titulo-card">
+								<p>Pendentes</p>
+								<h1>4</h1>
+							</div>
+							<div class="simbolo">
+								<i class="fa-solid fa-clock fa-2xl" style="color: #FFD43B;"></i>
+							</div>
+						</div>
+						<div class="card">
+							<div class="titulo-card">
+								<p>Aprovadas</p>
+								<h1>24</h1>
+							</div>
+							<div class="simbolo">
+								<i class="fa-solid fa-square-check fa-2xl" style="color: #1fbd00;"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="requisicao-recentes">
+					<h4>Requisições Recentes</h4>
+					<div class="todas-requisicoes">
+						<div class="card-requisicoes">
+							<div class="titulo-requisicao">
+								<div class="flex">
+									<h4>numero requisição</h4>
+									<p>
+										<i class="fa-regular fa-circle-check fa-2xs"></i>
+										Aprovada</p>
+								</div>
+								<p>data criação da requisição</p>
+							</div>
+							<div class="info-requisicao">
+								<div>
+									<i class="fa-solid fa-location-dot fa-2xs"></i>
+									<p>itinerario</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-calendar-days fa-2xs"></i>
+									<p>data da viagem</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-people-group fa-2xs"></i>
+									<p>Qntd. Passageiros</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="todas-requisicoes">
+						<div class="card-requisicoes">
+							<div class="titulo-requisicao">
+								<div class="flex">
+									<h4>numero requisição</h4>
+									<p>
+										<i class="fa-regular fa-circle-check fa-2xs"></i>
+										Aprovada</p>
+								</div>
+								<p>data criação da requisição</p>
+							</div>
+							<div class="info-requisicao">
+								<div>
+									<i class="fa-solid fa-location-dot fa-2xs"></i>
+									<p>itinerario</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-calendar-days fa-2xs"></i>
+									<p>data da viagem</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-people-group fa-2xs"></i>
+									<p>Qntd. Passageiros</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="todas-requisicoes">
+						<div class="card-requisicoes">
+							<div class="titulo-requisicao">
+								<div class="flex">
+									<h4>numero requisição</h4>
+									<p>
+										<i class="fa-regular fa-circle-check fa-2xs"></i>
+										Aprovada</p>
+								</div>
+								<p>data criação da requisição</p>
+							</div>
+							<div class="info-requisicao">
+								<div>
+									<i class="fa-solid fa-location-dot fa-2xs"></i>
+									<p>itinerario</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-calendar-days fa-2xs"></i>
+									<p>data da viagem</p>
+								</div>
+								<div>
+									<i class="fa-solid fa-people-group fa-2xs"></i>
+									<p>Qntd. Passageiros</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="nova-requisicao menu-content" id="nova-requisicao">
+				<div class="titulo-nova-requisicao">
+					<h1>Nova Requisição de Veículo</h1>
+					<p>Preencha os dados abaixo para solicitar um veículo</p>
+				</div>
+				<div class="formulario-requisicao">
+					<div class="titulo-formulario">
+						<i class="fa-solid fa-car-side fa-sm" style="color: #00ad03;"></i>
+						<h4>Dados da Requisição</h4>
+					</div>
+					<form action="{% url 'inserir_requisicao' %}" method="POST"> <!-- REQUISIÇÃO AQUI --><!-- REQUISIÇÃO AQUI --><!-- REQUISIÇÃO AQUI --><!-- REQUISIÇÃO AQUI -->
+						{% csrf_token %} 
+						
+						<div class="linhas-form">
+							<div>
+								<label for="id_requisicao">N° Requisição</label>
+								<input type="text" name="num_requisicao" id="id_requisicao">
+							</div>
+							<div>
+								<label for="id_itinerario">
+									<i class="fa-regular fa-compass fa-2xs"></i>
+									Itinerário</label>
+								<input type="text" name="itinerario" id="id_itinerario">
+							</div>
+						</div>
+						
+						<div class="linhas-form">
+							<div>
+								<label for="id_data">
+									<i class="fa-regular fa-calendar fa-2xs"></i>
+									Informe a data: </label>
+								<input type="date" name="data_requisicao" id="id_data">
+							</div>
+							<div>
+								<label for="id_hora">
+									<i class="fa-regular fa-clock fa-2xs"></i>
+									Informe a hora: </label>
+								<input type="time" name="hora_requisicao" id="id_hora">
+							</div>
+						</div>
+						
+						<div class="linhas-form">
+							<div>
+								<label for="id_passageiros">
+									<i class="fa-regular fa-user fa-2xs"></i>
+									Qntd de Passageiros</label>
+								<select name="passageiros" id="id_passageiros">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+							</div>
+							<div>
+								<label for="id_info">
+									<i class="fa-regular fa-comment fa-2xs"></i>
+									Informações adicionais</label>
+								<textarea name="info_adicional" id="id_info"></textarea>
+							</div>
+						</div>
+						
+						<div class="button">
+							<button class="botao1" type="button">Cancelar</button> 
+							<button class="botao2" type="submit">
+								<i class="fa-regular fa-paper-plane fa-2xs"></i>
+								Enviar Requisição
+							</button>
+						</div>
+					</form> <!-- REQUISIÇÃO AQUI --><!-- REQUISIÇÃO AQUI --><!-- REQUISIÇÃO AQUI --><!-- REQUISIÇÃO AQUI --><!-- REQUISIÇÃO AQUI --><!-- REQUISIÇÃO AQUI -->
+				</div>
+			</div>
+			<div class="minhas-requisicoes menu-content active" id="minhas-requisicoes">
+				<h1>Minhas Requisições</h1>
+				<!-- <p>Acompanhe por aqui todas as requisições ja feitas.</p>
+				<div class="filtro">
+					<div class="total">
+						<h4>
+							<i class="fa-solid fa-filter"></i>
+							Filtro :
+						</h4>
+					<select name="" id="">
+						<option value="">Todas</option>
+						<option value="">Pendentes</option>
+						<option value="">Finalizadas</option>
+						<option value="">Aprovadas</option>
+					</select>
+					</div>
+					<div class="total-encontrada">
+						<p>4 requisições encontradas</p>
+					</div>
+				</div> -->
+				<div class="todas-requisicoes">
+
+					<!-- <div class="card">
+					<div class="titulo-card">
+						<p>Total requisições</p>
+						<h1>{{ total_requisicoes }}</h1>
+					</div>
+					<div class="simbolo">
+						<i class="fa-solid fa-car-side fa-2xl" style="color: #74C0FC;"></i>
+					</div>
+					</div> -->
+
+				<div class="lista-requisicoes-container">
+					
+					{% for req in lista_requisicoes %} 
+					
+					<div class="card-requisicoes card-todas-requisicoes">
+						<div class="titulo-requisicao">
+							<div class="flex">
+								<h4>N° Requisição: {{ req.0 }}</h4> 
+							</div>
+							<p>Data da viagem: {{ req.2|date:"d/m/Y" }} | Hora: {{ req.3 }}</p>
+						</div>
+						<div class="info-requisicao"></div>
+					</div>
+					
+					{% empty %}
+					<p>Você não possui nenhuma requisição registrada.</p>
+					{% endfor %}
+					
+				</div>
+
+				{% if lista_requisicoes.has_other_pages %}
+				<div class="pagination">
+					
+					{% if lista_requisicoes.has_previous %}
+						<a href="?page={{ lista_requisicoes.previous_page_number }}" class="btn-prev">
+							&laquo; Anterior
+						</a>
+					{% else %}
+						<span class="btn-prev disabled">&laquo; Anterior</span>
+					{% endif %}
+					
+					<span class="current-page">
+						Página {{ lista_requisicoes.number }} de {{ lista_requisicoes.paginator.num_pages }}.
+					</span>
+
+					{% if lista_requisicoes.has_next %}
+						<a href="?page={{ lista_requisicoes.next_page_number }}" class="btn-next">
+							Próximo &raquo;
+						</a>
+					{% else %}
+						<span class="btn-next disabled">Próximo &raquo;</span>
+					{% endif %}
+					
+				</div>
+				{% endif %}
+				</div><!-- todas-requisicoes -->
+			</div>
+		</div>
+	</div>
+
+   <script src="https://kit.fontawesome.com/656642bb16.js" crossorigin="anonymous"></script>
+
+		<script>
+			function abrirAba(nome_aba, elemento) {
+				document.querySelectorAll('.menu-content').forEach(tab => {
+			  tab.classList.remove('active');
+			});
+			document.querySelectorAll('.menu-button').forEach(button => {
+			  button.classList.remove('active');
+			});
+			document.getElementById(nome_aba).classList.add('active');
+			event.target.classList.add('active');
+			}
+		</script>
+   
+
+</body>
+</html>

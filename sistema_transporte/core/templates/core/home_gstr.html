@@ -1,0 +1,688 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<link rel="stylesheet" href="{% static 'css/principal_gstr.css' %}">
+</head>
+<body>
+	<div class="container">
+		<aside class="sidebar">
+			<div class="logo-ipaam">
+				<div class="menu-logo">
+					<img src="{% static 'images/logo_ipaam.png' %}" >
+					<h4>
+					Sistema de Controle de Frotas
+					</h4>
+				</div>
+				<nav class="menu-nav">
+					<h3>Navegação</h3>
+					<ul>
+						<li><a href="#" class="menu-button" onclick="abrirAba('dashboard', this)"><i class="fa-solid fa-house"></i>Dashboard</a></li>
+						<li><a href="#" class="menu-button" onclick="abrirAba('viagens-andamento', this)"><i class="fa-solid fa-regular fa-chart-bar"></i>Viagens em andamento</a></li>
+						<li><a href="#" class="menu-button" onclick="abrirAba('viagens-finalizadas', this)"><i class="fa-solid fa-regular fa-chart-bar"></i>Viagens-finalizadas</a></li>
+						<li><a href="#" class="menu-button" onclick="abrirAba('requisicoes-pendentes', this)"><i class="fa-solid fa-plus"></i>Requisições Pendentes</a></li>
+						<li><a href="#" class="menu-button" onclick="abrirAba('veiculos', this)"><i class="fa-solid fa-regular fa-chart-bar"></i>Veículos</a></li>
+						<li><a href="#" class="menu-button" onclick="abrirAba('motoristas', this)"><i class="fa-solid fa-regular fa-chart-bar"></i>Motoristas</a></li>
+						<li><a href="#" class="menu-button" onclick="abrirAba('relatorios', this)"><i class="fa-solid fa-regular fa-chart-bar"></i>Relatório de Viagens</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="nav-footer">
+				Nome do usuário
+			</div>
+		</aside>
+		<div class="content">
+			<div class="dashboard menu-content active" id="dashboard">
+				<div class="card-dashboard">
+					<div class="card veiculos-disponiveis">
+						<h4>Veiculos disponiveis</h4>
+						<h1>2</h1>
+					</div>
+					<div class="card motoristas-disponiveis">
+						<h4>Motoristas Disponíveis</h4>
+						<h1>5</h1>
+					</div>
+					<div class="card requisicoes-abertas">
+						<h4>Requisições abertas</h4>
+						<h1>3</h1>
+					</div>
+					<div class="card viagens-requisicoes-andamento">
+						<h4>Viagens em Andamento</h4>
+						<h1>5</h1>
+					</div>
+					<div class="card requisicoes-realizadas">
+						<h4>Requisições realizadas</h4>
+						<h1>100</h1>
+					</div>
+				</div>
+				<div class="card-viagens-andamento">
+					<h1>Viagens em Andamento</h1>
+					<div class="card-andamento">
+						<div class="titulo-viagem">
+								<div>
+									<h4>Setor</h4>
+									<div class="align-items">
+										<i class="fa-solid fa-location-dot fa-2xs"></i>
+										<p>destino da viagem</p>
+									</div>
+								</div>
+						</div>
+						<div class="info">
+							<div class="align-items">
+								<i class="fa-solid fa-person"></i>
+								<p>motorista</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-car"></i>
+								<p>veiculo</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-users"></i>
+								<p>qntd. passageiros</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-alarm-clock"></i>
+								<p>Hora</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-flag-checkered"></i>
+								<p>Km Inicial</p>
+							</div>
+						</div>
+					</div>
+					<div class="card-andamento">
+						<div class="titulo-viagem">
+								<div>
+									<h4>Setor</h4>
+									<div class="align-items">
+										<i class="fa-solid fa-location-dot fa-2xs"></i>
+										<p>destino da viagem</p>
+									</div>
+								</div>
+						</div>
+						<div class="info">
+							<div class="align-items">
+								<i class="fa-solid fa-person"></i>
+								<p>motorista</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-car"></i>
+								<p>veiculo</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-users"></i>
+								<p>qntd. passageiros</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-alarm-clock"></i>
+								<p>Hora</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-flag-checkered"></i>
+								<p>Km Inicial</p>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>
+			<div class="viagens-andamento menu-content" id="viagens-andamento">
+				<h1>Viagens em Andamento</h1>
+				<p>Verifique aqui as viagens que estão em andamento.</p>
+				<div class="card-viagens-andamento">
+					<div class="card-andamento">
+						<div class="titulo-viagem">
+								<div class="titulo-card">
+									<h4>Setor</h4>
+									<div class="align-items">
+										<i class="fa-solid fa-location-dot fa-2xs"></i>
+										<p>destino da viagem</p>
+									</div>
+								</div>
+								<div class="botao-finalizar" id="abrir-dialogo">
+									<button>Finalizar</button>
+								</div>
+						</div>
+						<div class="info">
+							<div class="align-items">
+								<i class="fa-solid fa-person"></i>
+								<p>motorista</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-car"></i>
+								<p>veiculo</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-users"></i>
+								<p>qntd. passageiros</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-alarm-clock"></i>
+								<p>Hora</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-flag-checkered"></i>
+								<p>Km Inicial</p>
+							</div>
+						</div>
+					</div>
+					<div class="card-andamento">
+						<div class="titulo-viagem">
+								<div class="titulo-card">
+									<h4>Setor</h4>
+									<div class="align-items">
+										<i class="fa-solid fa-location-dot fa-2xs"></i>
+										<p>destino da viagem</p>
+									</div>
+								</div>
+								<div class="botao-finalizar" id="abrir-dialogo">
+									<button>Finalizar</button>
+								</div>
+						</div>
+						<div class="info">
+							<div class="align-items">
+								<i class="fa-solid fa-person"></i>
+								<p>motorista</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-car"></i>
+								<p>veiculo</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-users"></i>
+								<p>qntd. passageiros</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-alarm-clock"></i>
+								<p>Hora</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-flag-checkered"></i>
+								<p>Km Inicial</p>
+							</div>
+						</div>
+					</div>
+					<div class="card-andamento">
+						<div class="titulo-viagem">
+								<div class="titulo-card">
+									<h4>Setor</h4>
+									<div class="align-items">
+										<i class="fa-solid fa-location-dot fa-2xs"></i>
+										<p>destino da viagem</p>
+									</div>
+								</div>
+								<div class="botao-finalizar" id="abrir-dialogo">
+									<button>Finalizar</button>
+								</div>
+						</div>
+						<div class="info">
+							<div class="align-items">
+								<i class="fa-solid fa-person"></i>
+								<p>motorista</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-car"></i>
+								<p>veiculo</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-users"></i>
+								<p>qntd. passageiros</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-alarm-clock"></i>
+								<p>Hora</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-flag-checkered"></i>
+								<p>Km Inicial</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="viagens-finalizadas menu-content" id="viagens-finalizadas">
+				<h1>Viagens Finalizadas</h1>
+				<p>Verifique aqui todas as viagens ja finalizadas</p>
+				<div class="card-viagens-andamento">
+					<div class="card-andamento">
+						<div class="titulo-viagem">
+								<div class="titulo-card">
+									<h4>Setor</h4>
+									<div class="align-items">
+										<i class="fa-solid fa-location-dot fa-2xs"></i>
+										<p>destino da viagem</p>
+									</div>
+								</div>
+						</div>
+						<div class="info">
+							<div class="align-items">
+								<i class="fa-solid fa-person"></i>
+								<p>motorista</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-car"></i>
+								<p>veiculo</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-users"></i>
+								<p>qntd. passageiros</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-flag-checkered"></i>
+								<p>Km Inicial</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-triangle-exclamation"></i>
+								<p>Km final</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-alarm-clock"></i>
+								<p>Hr saida</p>
+							</div>
+							<div class="align-items">
+								<i class="fa-solid fa-alarm-clock"></i>
+								<p>Hr chegada</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<div class="requisicoes-pendentes menu-content" id="requisicoes-pendentes">
+			<h1>Requisições</h1>
+			<p>Verifique aqui as requisições aprovadas pela DAF e que aguardam sua aprovação.</p>
+			<div class="card-requisicoes">
+					<div class="titulo-card-requisicao">
+						<div>
+							<h4>numero requisição</h4>
+							<p>data criação da requisição</p>
+						</div>
+						<button id="abrir-dialogo-requisicao">Aceitar</button>
+					</div>
+				<div class="info-requisicao">
+					<div>
+						<i class="fa-solid fa-location-dot fa-2xs"></i>
+						<p>itinerario</p>
+					</div>
+					<div>
+						<i class="fa-solid fa-calendar-days fa-2xs"></i>
+						<p>data da viagem</p>
+					</div>
+					<div>
+						<i class="fa-solid fa-alarm-clock"></i>
+						<p>Hora</p>
+					</div>
+					<div>
+						<i class="fa-solid fa-people-group fa-2xs"></i>
+						<p>Qntd. Passageiros</p>
+					</div>
+				</div>
+			</div>
+			<div class="card-requisicoes">
+					<div class="titulo-card-requisicao">
+						<div>
+							<h4>numero requisição</h4>
+							<p>data criação da requisição</p>
+						</div>
+						<button id="abrir-dialogo-requisicao">Aceitar</button>
+					</div>
+				<div class="info-requisicao">
+					<div>
+						<i class="fa-solid fa-location-dot fa-2xs"></i>
+						<p>itinerario</p>
+					</div>
+					<div>
+						<i class="fa-solid fa-calendar-days fa-2xs"></i>
+						<p>data da viagem</p>
+					</div>
+					<div>
+						<i class="fa-solid fa-alarm-clock"></i>
+						<p>Hora</p>
+					</div>
+					<div>
+						<i class="fa-solid fa-people-group fa-2xs"></i>
+						<p>Qntd. Passageiros</p>
+					</div>
+				</div>
+			</div>
+			<div class="card-requisicoes">
+					<div class="titulo-card-requisicao">
+						<div>
+							<h4>numero requisição</h4>
+							<p>data criação da requisição</p>
+						</div>
+						<button id="abrir-dialogo-requisicao">Aceitar</button>
+					</div>
+				<div class="info-requisicao">
+					<div>
+						<i class="fa-solid fa-location-dot fa-2xs"></i>
+						<p>itinerario</p>
+					</div>
+					<div>
+						<i class="fa-solid fa-calendar-days fa-2xs"></i>
+						<p>data da viagem</p>
+					</div>
+					<div>
+						<i class="fa-solid fa-alarm-clock"></i>
+						<p>Hora</p>
+					</div>
+					<div>
+						<i class="fa-solid fa-people-group fa-2xs"></i>
+						<p>Qntd. Passageiros</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="veiculos menu-content" id="veiculos">
+			<h1>Cadastro de Veiculos</h1>
+			<p>Faça por aqui o cadastro dos seus veiculos.</p>
+			<div class="table">
+				<button id="abrir-dialogo-veiculo">cadastrar</button>
+				<table>
+					<tr>
+						<th>Modelo</th>
+						<th>Ano</th>
+						<th>Placa</th>
+					</tr>
+					<tr>
+						<td>S-10</td>
+						<td>2024</td>
+						<td>234-GR34</td>
+					</tr>
+					<tr>
+						<td>S-10</td>
+						<td>2024</td>
+						<td>234-GR34</td>
+					</tr>
+					<tr>
+						<td>S-10</td>
+						<td>2024</td>
+						<td>234-GR34</td>
+					</tr>
+					<tr>
+						<td>S-10</td>
+						<td>2024</td>
+						<td>234-GR34</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="motoristas menu-content" id="motoristas">
+			<h1>Cadastro de Motoristas</h1>
+			<p>Faça por aqui o cadastro dos seus motoristas.</p>
+			<div class="table">
+				<button id="abrir-dialogo-motorista">cadastrar</button>
+				<table>
+					<tr>
+						<th>Motorista</th>
+						<th>N° CNH</th>
+					</tr>
+					<tr>
+						<td>Ademir Abudabi</td>
+						<td>2012123912</td>
+					</tr>
+					<tr>
+						<td>Ademir Abudabi</td>
+						<td>2012123912</td>
+					</tr>
+					<tr>
+						<td>Ademir Abudabi</td>
+						<td>2012123912</td>
+					</tr>
+					<tr>
+						<td>Ademir Abudabi</td>
+						<td>2012123912</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="relatorios menu-content" id="relatorios">
+			<h1>Relatório de Viagens</h1>
+			<p>Veja aqui o relatório de todas as viagens ja feitas.</p>
+			<table class="tabela-relatorio">
+					<tr>
+						<th>Placa</th>
+						<th>Veículo</th>
+						<th>Motorista</th>
+						<th>Gerência</th>
+						<th>Destino</th>
+						<th>Usuários</th>
+						<th>KM Saida</th>
+						<th>KM Chegada</th>
+						<th>Data e Hora Saida</th>
+						<th>Data e Hora Chegada</th>
+					</tr>
+					<tr>
+						<td>OAK-3J61</td>
+						<td>S-10</td>
+						<td>Gustavo</td>
+						<td>Gabinete</td>
+						<td>Colonia Japonesa / Vieiralves / IPAAM</td>
+						<td>Felipe / Danielle / Roberta</td>
+						<td>14.017</td>
+						<td>22.746</td>
+						<td>06/09/2025 - 10:40</td>
+						<td>10/09/2025 - 07:55</td>
+					</tr>
+					<tr>
+						<td>OAK-3J61</td>
+						<td>S-10</td>
+						<td>Gustavo</td>
+						<td>Gabinete</td>
+						<td>Colonia Japonesa / Vieiralves / IPAAM</td>
+						<td>Felipe / Danielle / Roberta</td>
+						<td>14.017</td>
+						<td>22.746</td>
+						<td>06/09/2025 - 10:40</td>
+						<td>10/09/2025 - 07:55</td>
+					</tr>
+					<tr>
+						<td>OAK-3J61</td>
+						<td>S-10</td>
+						<td>Gustavo</td>
+						<td>Gabinete</td>
+						<td>Colonia Japonesa / Vieiralves / IPAAM</td>
+						<td>Felipe / Danielle / Roberta</td>
+						<td>14.017</td>
+						<td>22.746</td>
+						<td>06/09/2025 - 10:40</td>
+						<td>10/09/2025 - 07:55</td>
+					</tr>
+					<tr>
+						<td>OAK-3J61</td>
+						<td>S-10</td>
+						<td>Gustavo</td>
+						<td>Gabinete</td>
+						<td>Colonia Japonesa / Vieiralves / IPAAM</td>
+						<td>Felipe / Danielle / Roberta</td>
+						<td>14.017</td>
+						<td>22.746</td>
+						<td>06/09/2025 - 10:40</td>
+						<td>10/09/2025 - 07:55</td>
+					</tr>
+				</table>
+		</div>
+	</div>
+	
+	
+	<dialog id="meu-dialogo">
+		<div class="text-fechar">
+			<h1>Finalizar viagem</h1>
+			<button id="fechar-dialogo">fechar</button>
+		</div>
+		<form action="">
+			<div class="linhas-form">
+				<div>
+					<label for="">Quilometragem final: </label>
+					<input type="text">
+				</div>
+				<div>
+					<label for="">Hora chegada :</label>
+					<input type="time" style="text-align: center; width: 20%;">
+					<button>Enviar</button>
+				</div>
+			</div>
+		</form>
+	</dialog>
+	<dialog id="meu-dialogo-requisicao">
+		<div class="text-fechar">
+			<h1>Preencha com as informações</h1>
+			<button id="fechar-dialogo-requisicao">fechar</button>
+		</div>
+		<form action="">
+			<div class="linhas-form">
+				<div>
+					<label for="">Motorista : </label>
+					<input type="text">
+				</div>
+				<div>
+					<label for="">Placa veiculo : </label>
+					<select name="" id="">
+						<option value="">TAE-3E72</option>
+						<option value="">TGE-5F91</option>
+						<option value="">TDE-8U67</option>
+						<option value="">TWE-5Q54</option>
+					</select>
+				</div>
+				<div>
+					<label for="">Quilometragem Inicial : </label>
+					<input type="text">
+				</div>
+				<div>
+					<label for="">Hora Saida :</label>
+					<input type="time">
+					<button>Enviar</button>
+				</div>
+			</div>
+		</form>
+	</dialog>
+	<dialog id="meu-dialogo-veiculo">
+		<div class="text-fechar">
+			<h1>Preencha com as informações</h1>
+			<button id="fechar-dialogo-veiculo">fechar</button>
+		</div>
+		<form action="">
+			<div class="linhas-form">
+				<div>
+					<label for="">Modelo : </label>
+					<input type="text">
+				</div>
+				<div>
+					<label for="">Ano : </label>
+					<input type="number" min="1900" max="2099" step="1" value="2016" style="width: 40%; text-align: center;"/>
+				</div>
+				<div>
+					<label for="">Placa do Veiculo : </label>
+					<input type="text">
+				</div>
+				<div>
+					<button>Enviar</button>
+				</div>
+			</div>
+		</form>
+	</dialog>
+	<dialog id="meu-dialogo-motorista">
+		<div class="text-fechar">
+			<h1>Preencha com as informações</h1>
+			<button id="fechar-dialogo-motorista">fechar</button>
+		</div>
+		<form action="">
+			<div class="linhas-form">
+				<div>
+					<label for="">Nome do Motorista : </label>
+					<input type="text">
+				</div>
+				<div>
+					<label for="">Numero da CNH : </label>
+					<input type="text">
+				</div>
+				<div>
+					<button>Enviar</button>
+				</div>
+			</div>
+		</form>
+	</dialog>
+
+
+
+   <script src="https://kit.fontawesome.com/656642bb16.js" crossorigin="anonymous"></script>
+
+		<script>
+			function abrirAba(nome_aba, elemento) {
+				document.querySelectorAll('.menu-content').forEach(tab => {
+			  tab.classList.remove('active');
+			});
+			document.querySelectorAll('.menu-button').forEach(button => {
+			  button.classList.remove('active');
+			});
+			document.getElementById(nome_aba).classList.add('active');
+			event.target.classList.add('active');
+			}
+
+
+
+			// ###########################       DIALOGO FINALIZAR VIAGEM         ###############################################
+			const botaoAbrir = document.getElementById('abrir-dialogo');
+    		const botaoFechar = document.getElementById('fechar-dialogo');
+    		const meuDialogo = document.getElementById('meu-dialogo');
+
+    		// Quando o botão de "abrir" é clicado, mostre o diálogo.
+    		botaoAbrir.addEventListener('click', () => {
+    		meuDialogo.showModal();
+    		});
+
+    		// Quando o botão de "fechar" é clicado, feche o diálogo.
+    		botaoFechar.addEventListener('click', () => {
+    		meuDialogo.close();
+    		});
+
+
+			// ##########################     DIALOGO REQUISIÇÃO          ##################################################
+			const botaoModalRequisicao = document.getElementById('abrir-dialogo-requisicao');
+    		const botaoFecharRequisicao = document.getElementById('fechar-dialogo-requisicao');
+    		const meuDialogoRequisicao = document.getElementById('meu-dialogo-requisicao');
+
+    		// Quando o botão de "abrir" é clicado, mostre o diálogo.
+    		botaoModalRequisicao.addEventListener('click', () => {
+    		meuDialogoRequisicao.showModal();
+    		});
+
+    		// Quando o botão de "fechar" é clicado, feche o diálogo.
+    		botaoFecharRequisicao.addEventListener('click', () => {
+    		meuDialogoRequisicao.close();
+    		});
+
+			// ###########################            DIALOGO VEICULO            ############################################
+			const botaoModalVeiculo = document.getElementById('abrir-dialogo-veiculo');
+    		const botaoFecharVeiculo = document.getElementById('fechar-dialogo-veiculo');
+    		const meuDialogoVeiculo = document.getElementById('meu-dialogo-veiculo');
+
+    		// Quando o botão de "abrir" é clicado, mostre o diálogo.
+    		botaoModalVeiculo.addEventListener('click', () => {
+    		meuDialogoVeiculo.showModal();
+    		});
+			// Quando o botão de "fechar" é clicado, feche o diálogo.
+    		botaoFecharVeiculo.addEventListener('click', () => {
+    		meuDialogoVeiculo.close();
+    		});
+
+			// ###########################DIALOGO MOTORISTA########################################################################
+			const botaoModalMotorista = document.getElementById('abrir-dialogo-motorista');
+    		const botaoFecharMotorista = document.getElementById('fechar-dialogo-motorista');
+    		const meuDialogoMotorista = document.getElementById('meu-dialogo-motorista');
+
+    		// Quando o botão de "abrir" é clicado, mostre o diálogo.
+    		botaoModalMotorista.addEventListener('click', () => {
+    		meuDialogoMotorista.showModal();
+    		});
+
+    		// Quando o botão de "fechar" é clicado, feche o diálogo.
+    		botaoFecharMotorista.addEventListener('click', () => {
+    		meuDialogoMotorista.close();
+    		});
+		</script>
+   
+
+</body>
+</html>
