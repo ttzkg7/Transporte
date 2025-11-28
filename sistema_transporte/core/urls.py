@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     # 1. URL de Login (Nome CRUCIAL para o decorator: LOGIN_URL_NAME = 'do_login')
+    path('', views.meu_login_view, name='login'), 
     path('login/', views.meu_login_view, name='login'), 
 
 

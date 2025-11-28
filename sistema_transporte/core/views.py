@@ -18,7 +18,7 @@ def view_usuario(request):
         try:
             with connection.cursor() as cursor:
                 sql_query = """
-                    SELECT id_req, itinerario, data, hora, qtd_pass, obs, status_daf, status_gstr
+                    SELECT id_req, itinerario, data, hora, pass, obs, status_daf, status_gstr
                     FROM requisicoes
                     WHERE usuario = %s  
                     ORDER BY data DESC, hora DESC
@@ -30,7 +30,7 @@ def view_usuario(request):
             print(f"ERRO DE CONSULTA NO BD: {e}")
     
     # Cria o Paginator, definindo 5 itens por página
-    paginator = Paginator(requisicoes_full_list, 5) 
+    paginator = Paginator(requisicoes_full_list, 10) 
     
     # Pega o número da página na URL (ex: ?page=2). O padrão é 1.
     page = request.GET.get('page') 
@@ -105,7 +105,7 @@ def inserir_requisicao(request):
             # 3. Executar a inserção no banco de dados
             with connection.cursor() as cursor:
                 sql_insert = """
-                    INSERT INTO requisicoes (itinerario, data, hora, qtd_pass, obs, usuario, status_daf, status_gstr)
+                    INSERT INTO requisicoes (itinerario, data, hora, pass, obs, usuario, status_daf, status_gstr)
                     VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
                 """
                 # 4. Mapeamento dos valores para a query
